@@ -14,8 +14,8 @@ Fork this repository into your private account and try to implement the followin
 ### Requirements
 
 - A new *check workflow* should be triggered on pull requests targeting the `main` branch.
-- The workflow should build the application and run the unit tests.
-- The workflow should fail if the compilation or unit tests fail.
+- The workflow should build the application and run the unit tests. 
+- The workflow should fail if the compilation or unit tests fail. 
 - The repository should be configured to only allow pushes into the `main` branch done by pull requests.
 - The repository should contain a protection rule that only allows merging pull requests into `main` if the new *check workflow* passes.
 - The *check workflow* should publish the unit test results as a comment on the pull request regardless of whether the workflow passes or fails.
