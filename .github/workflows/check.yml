@@ -27,7 +27,6 @@ jobs:
 #Added a debug area
     - name: debug
       run: |
-        cd
         ls -lart target
 
 #Add an external action to add the test resualt as a comment 
