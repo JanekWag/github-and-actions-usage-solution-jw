@@ -1,0 +1,34 @@
+name: Check workflow
+ 
+#Check if there is an pull request trageting 'main' and if so starts the workflow
+on:
+  pull_request:
+    branches:
+        - main
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+ 
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+#Change the parameter from 'package' to test to build and test the application
+    - name: Build with Maven
+      run: mvn -B test --file pom.xml
+ 
+#Add an external action to add the test resualt as a comment 
+    - name: Publish Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v2
+      if: always()
+      with:
+        files: |
+          target/surefire-reports/*.xml
+          target/surefire-reports/*.txt
+          target/surefire-reports/*.json
