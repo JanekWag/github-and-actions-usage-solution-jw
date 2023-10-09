@@ -19,14 +19,17 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+
 #Change the parameter from 'package' to test to build and test the application
     - name: Build with Maven
-      run: |
-          mvn -B test --file pom.xml
-          pwd
-          ls -lart
+      run: mvn -B test --file pom.xml
 
- 
+#Added a debug area
+    - name: debug
+      run: |
+        pwd
+        ls -lart
+        
 #Add an external action to add the test resualt as a comment 
     - name: Publish Test Results
       uses: EnricoMi/publish-unit-test-result-action@v2
