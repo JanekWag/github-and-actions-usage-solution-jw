@@ -27,7 +27,7 @@ jobs:
 #Added a debug area
     - name: debug
       run: |
-        ls -lart target
+        ls -lart target/surefire-reports
 
 #Add an external action to add the test resualt as a comment 
     - name: Publish Test Results
